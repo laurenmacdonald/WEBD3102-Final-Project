@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+    <!-- HELLO SERVLET -->
+    <servlet>
+        <servlet-name>HelloServlet</servlet-name>
+        <servlet-class>com.example.webd3102finalproject.HelloServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HelloServlet</servlet-name>
+        <url-pattern>/home</url-pattern>
+    </servlet-mapping>
+    <!-- LOGIN -->
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>com.example.webd3102finalproject.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login/auth</url-pattern>
+    </servlet-mapping>
+    <!-- SIGN UP -->
+    <servlet>
+        <servlet-name>SignUpServlet</servlet-name>
+        <servlet-class>com.example.webd3102finalproject.SignUpServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SignUpServlet</servlet-name>
+        <url-pattern>/signup</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SignUpServlet</servlet-name>
+        <url-pattern>/signup/create-account</url-pattern>
+    </servlet-mapping>
+    <!-- ACCOUNT SERVLET -->
+    <servlet>
+        <servlet-name>UserDataServlet</servlet-name>
+        <servlet-class>com.example.webd3102finalproject.UserDataServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserDataServlet</servlet-name>
+        <url-pattern>/add-account</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserDataServlet</servlet-name>
+        <url-pattern>/add-budget</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserDataServlet</servlet-name>
+        <url-pattern>/dashboard</url-pattern>
+    </servlet-mapping>
+</web-app>

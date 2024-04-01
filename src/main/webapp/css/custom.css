@@ -1,0 +1,61 @@
+/* CSS elements ordered alphabetically */
+.bg-body-light-green, .section-bg{
+    background-color: #ebf1eb;
+}
+
+.btn-primary, .btn-primary:active{
+    background-color: #4a6e56;
+    border-color: #4a6e56;
+}
+.btn-primary:hover{
+    background-color: #4a6e56;
+    border-color: #4a6e56;
+    opacity: 0.75;
+}
+.btn-tertiary{
+    background-color: #9fc39f;
+    border-color: #9fc39f;
+    color:#35503e;
+}
+.btn-tertiary:hover{
+    background-color: #9fc39f;
+    border-color: #9fc39f;
+    color:#35503e;
+    opacity: 0.75;
+}
+
+.dropdown-item:active{
+    background-color: #4a6e56;
+}
+.dropdown-item:hover{
+    background-color: #ebf1eb;
+}
+h1, .nav-link{
+    color: #35503e ;
+}
+.nav-link:hover{
+    color: #35503e ;
+    opacity: 0.75;
+}
+.navbar-brand{
+    font-weight: bold;
+    color:  #4a6e56;
+}
+.navbar-brand:hover{
+    color:  #4a6e56;
+    opacity: 0.75;
+}
+
+@media (max-width: 768px) {
+    /* Adjusts for devices with widths up to 768px */
+    .home-details{
+        font-size: medium;
+        display:block;
+        text-align: center;
+        margin: 5px 0;
+    }
+    .home-link {
+        display: block; /* Each link will take up the full width of its container */
+        margin: 10px 0;
+    }
+}
