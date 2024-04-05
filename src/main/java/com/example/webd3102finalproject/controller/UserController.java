@@ -7,9 +7,6 @@ import com.example.webd3102finalproject.model.User;
 import static com.example.webd3102finalproject.controller.MySQLConnection.getConnection;
 
 public class UserController implements UserDAO {
-    private static final String SQL_SELECT = "SELECT * FROM users WHERE email = ?";
-    private static final String SQL_INSERT = "INSERT INTO users (firstName, lastName, email, passwordHash) VALUES (?, ?, ?, ?);";
-
     @Override
     public int create(User user) throws SQLException {
         Connection conn = null;
@@ -17,6 +14,7 @@ public class UserController implements UserDAO {
         int result = 0;
         try{
             conn = getConnection();
+            String SQL_INSERT = "INSERT INTO users (firstName, lastName, email, passwordHash) VALUES (?, ?, ?, ?);";
             preparedStatement = conn.prepareStatement(SQL_INSERT);
             preparedStatement.setString(1, user.getFirstName());
             preparedStatement.setString(2, user.getLastName());
@@ -30,6 +28,7 @@ public class UserController implements UserDAO {
         }catch (Exception genericException){
             System.err.println("Exception:" + genericException.getMessage());
         } finally {
+            assert preparedStatement != null;
             preparedStatement.close();
             conn.close();
         }
@@ -44,6 +43,7 @@ public class UserController implements UserDAO {
         User user = null;
         try{
             conn = getConnection();
+            String SQL_SELECT = "SELECT * FROM users WHERE email = ?";
             preparedStatement = conn.prepareStatement(SQL_SELECT);
             preparedStatement.setString(1, email);
             resultSet = preparedStatement.executeQuery();

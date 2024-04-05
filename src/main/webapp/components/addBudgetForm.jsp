@@ -29,8 +29,8 @@
         </select>
     </div>
     <div class="mb-3">
-        <label for="goalAmount" class="form-label">When is the goal amount for your budget?</label>
-        <input type="number" class="form-control" id="goalAmount" name="goalAmount"
+        <label for="goalAmount" class="form-label">What is the goal amount for your budget?</label>
+        <input type="text" class="form-control" id="goalAmount" name="goalAmount"
                value="<c:out value='${goalAmount}'/>" required>
     </div>
     <div class="mb-3">

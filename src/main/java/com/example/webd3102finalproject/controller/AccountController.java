@@ -10,11 +10,6 @@ import java.util.List;
 import static com.example.webd3102finalproject.controller.MySQLConnection.getConnection;
 
 public class AccountController implements AccountDAO {
-    private static final String SQL_INSERT = "INSERT INTO account (userID, accountName, startingBalance, createdDate) VALUES (?, ?, ?, ?)";
-    private static final String SQL_SELECT_ALL = "SELECT * FROM account WHERE userID = ?";
-    private static final String SQL_BALANCE_AFTER = "SELECT a.accountName,  a.startingBalance, COALESCE(SUM(CASE WHEN t.transactionType = 'Income' THEN t.amount ELSE 0 END), 0) AS totalIncome, COALESCE(SUM(CASE WHEN t.transactionType = 'Expense' THEN t.amount ELSE 0 END), 0) AS totalExpense,  a.startingBalance + COALESCE(SUM(CASE WHEN t.transactionType = 'Income' THEN t.amount ELSE 0 END), 0) - COALESCE(SUM(CASE WHEN t.transactionType = 'Expense' THEN t.amount ELSE 0 END), 0) AS balanceAfter, a.createdDate FROM account a LEFT JOIN transaction t ON a.accountID = t.accountID WHERE a.userID = ? GROUP BY a.accountID, a.accountName, a.startingBalance, a.createdDate;";
-    private static final String SQL_EQUATION = "SELECT a.accountName, a.startingBalance, SUM(CASE WHEN t.transactionType = 'Income' THEN t.amount ELSE 0 END) AS totalIncome, SUM(CASE WHEN t.transactionType = 'Expense' THEN t.amount ELSE 0 END) AS totalExpense, a.startingBalance + SUM(CASE WHEN t.transactionType = 'Income' THEN t.amount ELSE 0 END) - SUM(CASE WHEN t.transactionType = 'Expense' THEN t.amount ELSE 0 END) AS balanceAfter FROM account a JOIN transaction t ON a.accountID = t.accountID WHERE userID = ?;";
-
     @Override
     public int create(Account account) throws SQLException {
         Connection conn = null;
@@ -22,6 +17,7 @@ public class AccountController implements AccountDAO {
         int result = 0;
         try{
             conn = getConnection();
+            String SQL_INSERT = "INSERT INTO account (userID, accountName, startingBalance, createdDate) VALUES (?, ?, ?, ?)";
             preparedStatement = conn.prepareStatement(SQL_INSERT);
             preparedStatement.setInt(1, account.getUserID());
             preparedStatement.setString(2, account.getAccountName());
@@ -35,6 +31,7 @@ public class AccountController implements AccountDAO {
         }catch (Exception genericException){
             System.err.println("Exception:" + genericException.getMessage());
         } finally {
+            assert preparedStatement != null;
             preparedStatement.close();
             conn.close();
         }
@@ -50,11 +47,13 @@ public class AccountController implements AccountDAO {
 
         try{
             conn = getConnection();
+            String SQL_BALANCE_AFTER = "SELECT a.accountID, a.accountName,  a.startingBalance, COALESCE(SUM(CASE WHEN t.transactionType = 'Income' THEN t.amount ELSE 0 END), 0) AS totalIncome, COALESCE(SUM(CASE WHEN t.transactionType = 'Expense' THEN t.amount ELSE 0 END), 0) AS totalExpense,  a.startingBalance + COALESCE(SUM(CASE WHEN t.transactionType = 'Income' THEN t.amount ELSE 0 END), 0) - COALESCE(SUM(CASE WHEN t.transactionType = 'Expense' THEN t.amount ELSE 0 END), 0) AS balanceAfter, a.createdDate FROM account a LEFT JOIN transaction t ON a.accountID = t.accountID WHERE a.userID = ? GROUP BY a.accountID, a.accountName, a.startingBalance, a.createdDate;";
             preparedStatement = conn.prepareStatement(SQL_BALANCE_AFTER);
             preparedStatement.setInt(1, userId);
             resultSet = preparedStatement.executeQuery();
             while(resultSet.next()){
                 accountList.add(new Account(
+                        resultSet.getInt("accountID"),
                         resultSet.getString("accountName"),
                         resultSet.getDouble("startingBalance"),
                         resultSet.getDouble("totalIncome"),

@@ -8,9 +8,7 @@ import java.util.List;
 
 public interface BudgetDAO {
     int create(Budget budget) throws SQLException;
-
-    List<Budget> selectAllByMonth(Date startDate, Date endDate, int userID) throws SQLException;
-
-    int updateJunctionTable(int userID) throws SQLException;
+    List<Budget> selectAllByMonth(int userID,  Date startDate, Date endDate) throws SQLException;
+    int selectBudgetID(int categoryID) throws SQLException;
 }
 

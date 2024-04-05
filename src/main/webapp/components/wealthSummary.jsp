@@ -35,14 +35,14 @@
       <div class="col">
         <small>Earned this month</small>
         <br>
-        <small><i class="bi bi-arrow-up" style="color: darkgreen;"></i><fmt:formatNumber
-                value="${sessionScope.totalIncome}" type="currency"/></small>
+        <b><small><i class="bi bi-arrow-up" style="color: darkgreen;"></i><fmt:formatNumber
+                value="${sessionScope.totalIncome}" type="currency"/></small></b>
       </div>
       <div class="col">
         <small>Spent this month</small>
         <br>
-        <small><i class="bi bi-arrow-down" style="color: red;"></i><fmt:formatNumber
-                value="${sessionScope.totalExpense}" type="currency"/></small>
+        <b><small><i class="bi bi-arrow-down" style="color: red;"></i><fmt:formatNumber
+                value="${sessionScope.totalExpense}" type="currency"/></small></b>
       </div>
     </div>
   </div>

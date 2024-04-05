@@ -18,6 +18,8 @@ public class Budget {
     private String categoryName;
     // From transaction table
     private double transactionAmount;
+    private int percentageSpent;
+    private double amountLeft;
 
     public Budget(int userID, int categoryID, double goalAmount, Date startDate, Date endDate){
         this.userID = userID;
@@ -26,15 +28,6 @@ public class Budget {
         this.startDate = startDate;
         this.endDate = endDate;
     }
-    // Constructor for budget table
-//    public Budget(int budgetID, int categoryID, double goalAmount, Date startDate, Date endDate) {
-//        this.budgetID = budgetID;
-//        this.categoryID = categoryID;
-//        this.goalAmount = goalAmount;
-//        this.startDate = startDate;
-//        this.endDate = endDate;
-//    }
-
     public Budget(int budgetID, int categoryID, double goalAmount, Date startDate, Date endDate, int budgetTransactionID, int transactionID, double actualAmount, String categoryName) {
         this.budgetID = budgetID;
         this.categoryID = categoryID;
@@ -47,13 +40,15 @@ public class Budget {
         this.categoryName = categoryName;
     }
 
-    public Budget(double goalAmount, Date startDate, Date endDate, double actualAmount, String categoryName, double transactionAmount) {
+    public Budget(int budgetID, double goalAmount, Date startDate, Date endDate, double actualAmount, String categoryName) {
+        this.budgetID = budgetID;
         this.goalAmount = goalAmount;
         this.startDate = startDate;
         this.endDate = endDate;
         this.actualAmount = actualAmount;
         this.categoryName = categoryName;
-        this.transactionAmount = transactionAmount;
+        this.percentageSpent = (int) ((actualAmount/goalAmount)*100);
+        this.amountLeft = goalAmount - actualAmount;
     }
 
     public int getBudgetID() {
@@ -134,5 +129,22 @@ public class Budget {
 
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
+    }
+
+
+    public int getPercentageSpent() {
+        return percentageSpent;
+    }
+
+    public void setPercentageSpent(int percentageSpent) {
+        this.percentageSpent = percentageSpent;
+    }
+
+    public double getAmountLeft() {
+        return amountLeft;
+    }
+
+    public void setAmountLeft(double amountLeft) {
+        this.amountLeft = amountLeft;
     }
 }

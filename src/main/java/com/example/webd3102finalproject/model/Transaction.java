@@ -8,6 +8,7 @@ public class Transaction {
     private int categoryID;
     private String transactionType;
     private double amount;
+    private int budgetID;
     private Date date;
     private String categoryName;
     private String accountName;
@@ -21,6 +22,14 @@ public class Transaction {
         this.accountName = accountName;
     }
 
+    public Transaction(int accountID, int categoryID, String transactionType, double amount, int budgetID, Date date) {
+        this.accountID = accountID;
+        this.categoryID = categoryID;
+        this.transactionType = transactionType;
+        this.amount = amount;
+        this.budgetID = budgetID;
+        this.date = date;
+    }
 
     public int getTransactionID() {
         return transactionID;
@@ -60,6 +69,14 @@ public class Transaction {
 
     public void setAmount(double amount) {
         this.amount = amount;
+    }
+
+    public int getBudgetID() {
+        return budgetID;
+    }
+
+    public void setBudgetID(int budgetID) {
+        this.budgetID = budgetID;
     }
 
     public Date getDate() {

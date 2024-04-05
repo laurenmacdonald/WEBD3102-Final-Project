@@ -36,6 +36,16 @@ public class Account {
         this.createdDate = createdDate;
     }
 
+    public Account(int accountID, String accountName, double startingBalance, double totalIncome, double totalExpense, double balanceAfter, Date createdDate) {
+        this.accountID = accountID;
+        this.accountName = accountName;
+        this.startingBalance = startingBalance;
+        this.totalIncome = totalIncome;
+        this.totalExpense = totalExpense;
+        this.balanceAfter = balanceAfter;
+        this.createdDate = createdDate;
+    }
+
     public int getAccountID() {
         return accountID;
     }

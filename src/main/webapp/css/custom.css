@@ -1,5 +1,5 @@
 /* CSS elements ordered alphabetically */
-.bg-body-light-green, .section-bg{
+.bg-body-light-green, .section-bg, .container-fluid{
     background-color: #ebf1eb;
 }
 
@@ -44,6 +44,14 @@ h1, .nav-link{
 .navbar-brand:hover{
     color:  #4a6e56;
     opacity: 0.75;
+}
+/* Progress bar for budgets */
+.progress {margin-bottom:0;}
+.start {float:left;}
+.end {float:right; text-align:right;}
+.progress-bar{
+    background-color: #35503e;
+
 }
 
 @media (max-width: 768px) {

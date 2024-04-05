@@ -48,6 +48,7 @@ public class LoginServlet extends HttpServlet {
     }
 
     public void login(HttpServletRequest request, HttpServletResponse response) throws  IOException {
+        // Get email and password from form, create new user object
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         User user;
@@ -68,11 +69,25 @@ public class LoginServlet extends HttpServlet {
     }
     public void logout(HttpServletRequest request, HttpServletResponse response) throws IOException {
         HttpSession session = request.getSession();
+        // remove all session attributes
         session.removeAttribute("user");
         session.removeAttribute("accountList");
         session.removeAttribute("totalWealth");
         session.removeAttribute("totalExpenses");
         session.removeAttribute("totalIncome");
+        session.removeAttribute("startDate");
+        session.removeAttribute("endDate");
+        session.removeAttribute("alreadySet");
+        session.removeAttribute("account");
+        session.removeAttribute("budgetAdditionError");
+        session.removeAttribute("transactionError");
+        session.removeAttribute("incomeTransactions");
+        session.removeAttribute("expenseTransactions");
+        session.removeAttribute("transactionList");
+        session.removeAttribute("expenseDataKeys");
+        session.removeAttribute("expenseDataValues");
+        session.removeAttribute("budgetList");
+        session.removeAttribute("backgroundImages");
         String successMessage = "Successfully logged out.";
         response.sendRedirect(request.getContextPath() + "/home?logoutSuccess=" + URLEncoder.encode(successMessage, StandardCharsets.UTF_8));
     }

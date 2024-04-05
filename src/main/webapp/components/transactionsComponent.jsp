@@ -9,6 +9,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="categoryName" tagdir="/WEB-INF/tags" %>
 <c:forEach var="transaction" items="${sessionScope.transactionList}" varStatus="loop">
+    <c:if test="${loop.index < 5}">
     <div class="card border-light">
         <div class="card-body">
             <div class="card-title">
@@ -36,4 +37,5 @@
             </div>
         </div>
     </div>
+    </c:if>
 </c:forEach>

@@ -11,6 +11,6 @@ public interface TransactionDAO {
     int create(Transaction transaction) throws SQLException;
     List<Transaction> selectAllByType(String transactionType, Date startDate, Date endDate, int userId) throws SQLException;
     List<Transaction> selectAll(Date startDate, Date endDate, int userId) throws SQLException;
-    HashMap<String, Double> expenseData(String transactionType, int userId) throws SQLException;
+    HashMap<String, Double> expenseData(String transactionType, int userId, Date startDate, Date endDate) throws SQLException;
 
 }

@@ -46,25 +46,20 @@
             <div class="d-flex justify-content-center align-items-center h-100">
                 <div class="container-md">
                     <div class="text text-center p-5 m-5">
-                        <h1 style="font-weight: bold;"><i class="bi bi-cash-stack" aria-hidden="true"
-                                                          style="font-size: calc(2rem + 1.5vw);"></i>&nbsp;WealthWise. </h1>
-                        <h1>It will help you manage your wealth and make you richer
-                            than the next guy.</h1>
+                        <h1 style="font-weight: bold;"><i class="bi bi-cash-stack" aria-hidden="true" style="font-size: calc(2rem + 1.5vw);"></i>&nbsp;WealthWise. </h1>
+                        <h1>It will help you manage your wealth and make you richer.</h1>
                         <div class="container mt-3 pt-5">
                             <div class="row row-cols-1 row-cols-md-3 g-2">
                                 <div class="col">
-                                    <small
-                                            class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-success-emphasis bg-body-light-green border-success-subtle rounded-2">
+                                    <small class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-success-emphasis bg-body-light-green border-success-subtle rounded-2">
                                         <featureIcon:featureIconTag value="receipt"/>&nbsp;Track income and expenses.</small>
                                 </div>
                                 <div class="col">
-                                    <small
-                                            class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-success-emphasis bg-body-light-green border-success-subtle rounded-2">
+                                    <small class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-success-emphasis bg-body-light-green border-success-subtle rounded-2">
                                         <featureIcon:featureIconTag value="piggy-bank"/>&nbsp;Budget planning.</small>
                                 </div>
                                 <div class="col">
-                                    <small
-                                            class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-success-emphasis bg-body-light-green border-success-subtle rounded-2">
+                                    <small class="d-inline-flex mb-3 px-2 py-1 fw-semibold text-success-emphasis bg-body-light-green border-success-subtle rounded-2">
                                         <featureIcon:featureIconTag value="cash-stack"/>&nbsp;Grow wealth.</small>
                                 </div>
                             </div>
