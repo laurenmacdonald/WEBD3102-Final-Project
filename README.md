@@ -1,4 +1,4 @@
-# Order Management System Application
+# Wealth Wise Finance Planner
 
 > **Completed for WEBD3201 Final Project**
 >
